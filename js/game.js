@@ -118,7 +118,7 @@ $(document).ready(function () {
         
 
         //add the correct values in the questions array
-        function sumScore(randQuestion) {
+        function sumScore(questions) {
             return scoreAry.reduce(function (previousValue, currentValue, index, array) {
                 return previousValue + currentValue;
             });
