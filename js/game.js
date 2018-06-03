@@ -85,15 +85,17 @@ $(document).ready(function () {
 
         // initiate a counter to keep track of the game 
         var counter = questions.length;
-        var randQuestion = questions[Math.floor(Math.random() * counter)];
+        
 
         //get the question and answer data from the questions array and append it to the #questions div
         //create and append a NEXT button to move to the next question
-        function createQuestion(randQuestion) {
+        function createQuestion(questions) {
+            
             for (var i = 0; i < counter; i++) {
                 //hide start button to allow for NEXT button placehold
                 $(".start").hide();
                 //append the questions here 
+                var randQuestion = questions[Math.floor(Math.random() * counter)];
                 $("#questions").append('<form id="' + i + '" class="center-text"><p>Question ' + (i + 1) + ' of ' + counter + '</p><h3 class="question">' + randQuestion.q + '</h3>' + radioButtons(randQuestion.c, i) + '<button type="submit" class="next">NEXT</button></p></form>');
             }
             //questions have been created but wee only want to show one at a time 
@@ -132,7 +134,7 @@ $(document).ready(function () {
             }
         }
 
-        createQuestion(randQuestion);
+        createQuestion(questions);
         //=============================================================================================
 
         $(".next").click(function (event) {
